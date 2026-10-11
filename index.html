@@ -3,21 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>ماسح كروت الواي فاي - فندق روز عدن 1 | Rose Aden Hotel 1</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/html5-qrcode"></script>
+    <title>ماسح كروت الواي فاي الذكي - فندق روز عدن 1 | Rose Aden Hotel 2</title>
+    
+    <!-- الخطوط الاحترافية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Cairo:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- مكتبة قراءة الباركود المتطورة مع روابط احتياطية متعددة لضمان العمل الدائم -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"></script>
+    <script>
+        if (typeof Html5Qrcode === "undefined") {
+            document.write('<script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"><\/script>');
+        }
+        if (typeof Html5Qrcode === "undefined") {
+            document.write('<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"><\/script>');
+        }
+    </script>
+
     <style>
+        :root {
+            --primary-rose: #c52548;
+            --rose-deep: #9f1239;
+            --rose-light: #e11d48;
+            --rose-glow: #fb7185;
+            --rose-subtle: rgba(197, 37, 72, 0.15);
+            --bg-navy-dark: #070d1e;
+            --bg-card: rgba(13, 22, 48, 0.96);
+            --border-card: rgba(197, 37, 72, 0.45);
+            --cyan-accent: #38bdf8;
+            --sky-blue: #0284c7;
+            --emerald: #10b981;
+            --gold-accent: #f5cd5f;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Cairo', Tahoma, sans-serif;
+            font-family: 'Almarai', 'Cairo', Tahoma, sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background: radial-gradient(circle at 50% 0%, #0d2857 0%, #07132c 45%, #030712 100%);
-            color: #f8fafc;
+            background: radial-gradient(circle at 50% 0%, #1a1736 0%, #0d1226 45%, #050813 100%);
+            color: var(--text-main);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -28,49 +60,60 @@
 
         .scanner-card {
             width: 100%;
-            max-width: 420px;
-            background: rgba(8, 17, 38, 0.95);
+            max-width: 430px;
+            background: var(--bg-card);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1.5px solid rgba(30, 96, 196, 0.4);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 35px rgba(11, 77, 162, 0.25);
-            border-radius: 26px;
+            border: 1.5px solid var(--border-card);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(197, 37, 72, 0.25);
+            border-radius: 28px;
             padding: 22px 18px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
+        /* شريط التدرج اللوني العلوي الخاص بهوية روز عدن 2 */
         .scanner-card::before {
             content: "";
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #c5a059, #0b4da2, #38b6ff);
+            height: 4.5px;
+            background: linear-gradient(90deg, #c52548, #0284c7, #f5cd5f, #e11d48);
         }
 
+        /* شارة الفندق */
         .hotel-badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            background: rgba(11, 77, 162, 0.25);
-            color: #38b6ff;
-            border: 1px solid rgba(56, 182, 255, 0.35);
-            padding: 5px 14px;
-            border-radius: 20px;
-            font-size: 12px;
+            gap: 8px;
+            background: rgba(197, 37, 72, 0.18);
+            color: #fecdd3;
+            border: 1px solid rgba(251, 113, 133, 0.4);
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 12.5px;
             font-weight: 800;
             margin-bottom: 10px;
+            box-shadow: 0 2px 10px rgba(197, 37, 72, 0.2);
+        }
+
+        .hotel-badge svg {
+            width: 16px;
+            height: 16px;
+            stroke: #fb7185;
+            fill: none;
         }
 
         h1 {
-            font-size: 19px;
-            font-weight: 800;
-            color: #f8fafc;
+            font-size: 20px;
+            font-weight: 900;
+            color: #ffffff;
             margin-bottom: 4px;
-            text-shadow: 0 2px 8px rgba(11, 77, 162, 0.5);
+            letter-spacing: -0.3px;
+            text-shadow: 0 2px 10px rgba(197, 37, 72, 0.4);
         }
 
         .subtitle {
@@ -78,6 +121,7 @@
             color: #cbd5e1;
             margin-bottom: 14px;
             line-height: 1.5;
+            font-weight: 600;
         }
 
         /* نافذة الكاميرا المباشرة */
@@ -86,12 +130,12 @@
             max-width: 290px;
             height: 290px;
             margin: 0 auto 14px auto;
-            border-radius: 20px;
+            border-radius: 22px;
             overflow: hidden;
             position: relative;
-            background: #000;
-            border: 2px solid rgba(30, 96, 196, 0.5);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(11, 77, 162, 0.3);
+            background: #000000;
+            border: 2px solid rgba(197, 37, 72, 0.6);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 25px rgba(197, 37, 72, 0.3);
         }
 
         #reader {
@@ -104,7 +148,7 @@
             width: 100% !important;
             height: 100% !important;
             object-fit: cover !important;
-            border-radius: 18px;
+            border-radius: 20px;
         }
 
         .scan-overlay {
@@ -119,12 +163,13 @@
             justify-content: center;
         }
 
+        /* ليزر المسح بتدرج روز عدن 2 الفندقي */
         .laser-line {
-            width: 80%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #38b6ff, #f5cd5f, transparent);
-            box-shadow: 0 0 12px #38b6ff;
-            animation: laserScan 2s infinite ease-in-out;
+            width: 82%;
+            height: 2.5px;
+            background: linear-gradient(90deg, transparent, #fb7185, #f5cd5f, transparent);
+            box-shadow: 0 0 14px #fb7185, 0 0 4px #fff;
+            animation: laserScan 2.2s infinite ease-in-out;
         }
 
         @keyframes laserScan {
@@ -133,11 +178,11 @@
             100% { transform: translateY(-110px); opacity: 0.2; }
         }
 
-        /* بطاقة خيارات قراءة الـ QR من ملف / لقطة شاشة */
+        /* قسم قراءة الـ QR من ملف / لقطة شاشة / ألبوم الصور */
         .file-upload-section {
-            background: rgba(13, 24, 51, 0.85);
-            border: 1.5px dashed rgba(56, 182, 255, 0.45);
-            border-radius: 18px;
+            background: rgba(18, 28, 58, 0.85);
+            border: 1.5px dashed rgba(225, 29, 72, 0.55);
+            border-radius: 20px;
             padding: 14px;
             margin-bottom: 12px;
             text-align: center;
@@ -145,65 +190,73 @@
         }
 
         .file-upload-section:hover {
-            border-color: #c5a059;
-            background: rgba(16, 31, 66, 0.95);
+            border-color: #f5cd5f;
+            background: rgba(22, 36, 74, 0.95);
         }
 
         .file-upload-title {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            font-size: 12.5px;
+            gap: 7px;
+            font-size: 13px;
             font-weight: 800;
-            color: #38b6ff;
+            color: #fecdd3;
             margin-bottom: 10px;
+        }
+
+        .file-upload-title svg {
+            stroke: #fb7185;
+            flex-shrink: 0;
         }
 
         .photo-btn-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px;
+            gap: 9px;
         }
 
         .btn-photo-action {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            height: 44px;
-            border-radius: 12px;
+            gap: 7px;
+            height: 46px;
+            border-radius: 14px;
             font-size: 12px;
             font-weight: 800;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
             outline: none;
             text-decoration: none;
         }
 
         .btn-gallery {
-            background: linear-gradient(135deg, #0b4da2 0%, #1565c0 50%, #1e60c4 100%);
+            background: linear-gradient(135deg, #c52548 0%, #9f1239 50%, #881337 100%);
             color: #ffffff !important;
-            border: 1px solid rgba(56, 182, 255, 0.4);
-            box-shadow: 0 4px 14px rgba(11, 77, 162, 0.4);
+            border: 1px solid rgba(251, 113, 133, 0.5);
+            box-shadow: 0 4px 14px rgba(197, 37, 72, 0.35);
         }
 
         .btn-gallery:hover {
-            background: linear-gradient(135deg, #0d5bc2 0%, #1e6bd6 50%, #2575fc 100%);
-            transform: translateY(-1px);
+            background: linear-gradient(135deg, #e11d48 0%, #be123c 50%, #9f1239 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(197, 37, 72, 0.5);
         }
 
         .btn-snap {
-            background: linear-gradient(135deg, #071a3d 0%, #0b3c7e 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: #ffffff !important;
-            border: 1.5px solid rgba(197, 160, 89, 0.7);
+            border: 1.5px solid rgba(245, 205, 95, 0.7);
             box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
         }
 
         .btn-snap:hover {
             border-color: #f5cd5f;
-            transform: translateY(-1px);
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(245, 205, 95, 0.25);
         }
 
         /* صندوق معاينة الصورة المرفوعة */
@@ -211,16 +264,16 @@
             display: none;
             margin-top: 10px;
             padding: 8px;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 12px;
-            border: 1px solid rgba(56, 182, 255, 0.3);
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 14px;
+            border: 1px solid rgba(251, 113, 133, 0.3);
             text-align: center;
         }
 
         .preview-box img {
             max-width: 100%;
             max-height: 140px;
-            border-radius: 8px;
+            border-radius: 10px;
             object-fit: contain;
             display: block;
             margin: 0 auto 6px auto;
@@ -239,23 +292,25 @@
 
         .btn-resume-cam {
             width: 100%;
-            height: 40px;
-            background: rgba(30, 96, 196, 0.25);
-            border: 1px solid rgba(56, 182, 255, 0.4);
-            border-radius: 10px;
-            color: #38b6ff;
-            font-size: 12px;
+            height: 42px;
+            background: rgba(197, 37, 72, 0.2);
+            border: 1px solid rgba(251, 113, 133, 0.4);
+            border-radius: 12px;
+            color: #fecdd3;
+            font-size: 12.5px;
             font-weight: 800;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 7px;
             cursor: pointer;
+            transition: all 0.2s;
         }
 
         .btn-resume-cam:hover {
-            background: rgba(30, 96, 196, 0.4);
-            color: #fff;
+            background: rgba(197, 37, 72, 0.35);
+            color: #ffffff;
+            border-color: #fb7185;
         }
 
         /* صندوق Safari للآيفون */
@@ -269,14 +324,22 @@
             justify-content: center;
             gap: 8px;
             width: 100%;
-            height: 42px;
-            border-radius: 12px;
+            height: 44px;
+            border-radius: 14px;
             background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
             color: #ffffff !important;
             font-weight: 800;
-            font-size: 12.5px;
+            font-size: 13px;
             text-decoration: none;
             box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .btn-safari:hover {
+            background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(2, 132, 199, 0.5);
         }
 
         .controls-row {
@@ -287,76 +350,85 @@
 
         .btn-action {
             flex: 1;
-            height: 38px;
-            border-radius: 10px;
-            background: rgba(13, 24, 51, 0.85);
-            border: 1px solid rgba(30, 96, 196, 0.35);
+            height: 40px;
+            border-radius: 12px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(197, 37, 72, 0.35);
             color: #cbd5e1;
-            font-size: 11.5px;
+            font-size: 12px;
             font-weight: 700;
             cursor: pointer;
-        }
-
-        .btn-action:hover {
-            color: #fff;
-            border-color: #38b6ff;
-        }
-
-        .status-box {
-            background: rgba(13, 24, 51, 0.9);
-            border: 1px solid rgba(30, 96, 196, 0.3);
-            border-radius: 12px;
-            padding: 10px;
-            font-size: 12px;
-            color: #cbd5e1;
-            margin-bottom: 12px;
-            min-height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
-            line-height: 1.4;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .btn-action:hover {
+            color: #ffffff;
+            border-color: #fb7185;
+            background: rgba(30, 41, 59, 0.95);
+        }
+
+        .status-box {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(197, 37, 72, 0.35);
+            border-radius: 14px;
+            padding: 10px;
+            font-size: 12.5px;
+            color: #cbd5e1;
+            margin-bottom: 12px;
+            min-height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.45;
         }
 
         .btn-back {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             width: 100%;
-            height: 42px;
-            line-height: 40px;
-            border-radius: 12px;
-            background: rgba(13, 24, 51, 0.85);
-            border: 1px solid rgba(30, 96, 196, 0.35);
+            height: 44px;
+            border-radius: 14px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(197, 37, 72, 0.4);
             color: #f8fafc !important;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 13.5px;
             font-weight: 800;
             transition: all 0.2s ease;
         }
 
         .btn-back:hover {
-            background: rgba(16, 31, 66, 0.95);
-            border-color: #38b6ff;
+            background: rgba(30, 41, 59, 0.95);
+            border-color: #fb7185;
+            transform: translateY(-1px);
         }
 
-        /* تذييل برونت كمبيوتر */
+        /* تذييل برونت كمبيوتر المعتمد */
         .pronet-unified-footer {
             width: 100%;
             margin-top: 14px;
-            padding-top: 10px;
-            border-top: 1px solid rgba(30, 96, 196, 0.25);
+            padding-top: 12px;
+            border-top: 1px solid rgba(197, 37, 72, 0.3);
             text-align: center;
         }
 
         .p-line-title {
-            font-size: 10px;
+            font-size: 10.5px;
             color: #94a3b8;
             margin-bottom: 2px;
         }
 
         .p-line-company {
-            font-size: 11.5px;
+            font-size: 12px;
             color: #f8fafc;
-            font-weight: 700;
-            margin-bottom: 2px;
+            font-weight: 800;
+            margin-bottom: 3px;
         }
 
         .p-line-company b {
@@ -364,12 +436,13 @@
         }
 
         .p-line-address {
-            font-size: 10.5px;
+            font-size: 11px;
             color: #94a3b8;
+            line-height: 1.5;
         }
 
         .p-line-address a {
-            color: #c5a059;
+            color: #f5cd5f;
             text-decoration: none;
             font-weight: 700;
         }
@@ -378,9 +451,12 @@
 <body>
 
     <div class="scanner-card">
+        <!-- شارة الفندق -->
         <div class="hotel-badge">
-            <span>🏨</span>
-            فندق روز عدن 1 السياحي
+            <svg viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M9 9h1M9 13h1M9 17h1M14 9h1M14 13h1M14 17h1"></path>
+            </svg>
+            <span>فندق روز عدن 1 السياحي (ساحل أبين)</span>
         </div>
 
         <h1>ماسح كروت الواي فاي الذكي</h1>
@@ -397,7 +473,10 @@
         <!-- قسم قراءة الـ QR من ملف / لقطة شاشة / ألبوم الصور -->
         <div class="file-upload-section">
             <div class="file-upload-title">
-                <span>📁 قراءة الكرت من صورة أو لقطة شاشة (Screenshot)</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span>قراءة الكرت من صورة أو لقطة شاشة (Screenshot)</span>
             </div>
             
             <input type="file" id="qrCaptureInput" accept="image/*" capture="environment" style="display:none;">
@@ -405,7 +484,7 @@
 
             <div class="photo-btn-row">
                 <button type="button" class="btn-photo-action btn-gallery" id="btnUploadPhoto" title="اختيار صورة أو لقطة شاشة للكرت من المعرض أو الملفات">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                         <circle cx="8.5" cy="8.5" r="1.5"></circle>
                         <polyline points="21 15 16 10 5 21"></polyline>
@@ -413,8 +492,8 @@
                     <span>ألبوم الصور / لقطة شاشة</span>
                 </button>
 
-                <button type="button" class="btn-photo-action btn-snap" id="btnSnapPhoto" title="التقاط صورة للكرت بكاميرا الهاتف">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <button type="button" class="btn-photo-action btn-snap" id="btnSnapPhoto" title="التقاط صورة فورية للكرت بكاميرا الهاتف">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
                         <circle cx="12" cy="13" r="4"></circle>
                     </svg>
@@ -443,56 +522,104 @@
         <!-- زر فتح في متصفح سفاري لمستخدمي الآيفون -->
         <div class="safari-box">
             <a id="btnSafariGitHub" href="#" target="_blank" rel="noopener noreferrer" class="btn-safari">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="currentColor"></polygon></svg>
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="currentColor"></polygon>
+                </svg>
                 <span>فتح في متصفح سفاري (Safari للآيفون)</span>
             </a>
         </div>
 
         <div class="controls-row">
-            <button type="button" class="btn-action" id="switchCameraBtn">🔄 تبديل الكاميرا</button>
-            <button type="button" class="btn-action" id="torchBtn" style="display:none;">💡 تشغيل الفلاش</button>
+            <button type="button" class="btn-action" id="switchCameraBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+                </svg>
+                <span>تبديل الكاميرا</span>
+            </button>
+            <button type="button" class="btn-action" id="torchBtn" style="display:none;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                <span>تشغيل الفلاش</span>
+            </button>
         </div>
 
         <div class="status-box" id="statusText">جاري تشغيل الكاميرا الخلفية...</div>
 
-        <a id="backBtn" href="http://r.com" class="btn-back">↩️ العودة لصفحة الدخول (r.com)</a>
+        <a id="backBtn" href="http://r.com" class="btn-back">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7"></path>
+            </svg>
+            <span>العودة لصفحة الدخول (r.com)</span>
+        </a>
 
-        <!-- الفوتر الموحد -->
+        <!-- الفوتر الموحد الرسمي لبرونت كمبيوتر -->
         <div class="pronet-unified-footer">
             <div class="p-line-title">تصميم وتطوير البنية الشبكية والأمن الرقمي تحت إشراف</div>
-            <div class="p-line-company">شركة: <b>برونت كمبيوتر (ProNet Computer)</b> - م/عمار الأسدي</div>
-            <div class="p-line-address">عدن - المعلا - أمام بنك الكريمي - هاتف: <a href="tel:02241004">02-241004</a> | واتساب: <a href="https://wa.me/967775043020" target="_blank">775043020</a></div>
+            <div class="p-line-company">شركة: <b>برونت كمبيوتر (ProNet Computer)</b> - م/ عمار الأسدي</div>
+            <div class="p-line-address">عدن - المعلا - الشارع الرئيسي (أمام بنك الكريمي) - هاتف: <a href="tel:02241004">02-241004</a> | جوال / واتساب: <a href="https://wa.me/967775043020" target="_blank">775043020</a></div>
         </div>
     </div>
 
-    <!-- كود التشغيل وفك التشفير ومسح الملفات والصور -->
+    <!-- كود التشغيل وفك التشفير ومسح الملفات والصور المتقدم -->
     <script>
-        const CORAL_SECRET_KEYS = [
+        // مفتاح التشفير الأساسي المعتمد لروز عدن 2
+        const RAH_SECRET_KEY = "RAH_RoseAden_Hotel_2026_Secure";
+
+        // مفاتيح التشفير السابقة والاحتياطية لضمان التوافق التام
+        const SECRET_KEYS_LIST = [
+            "RAH_RoseAden_Hotel_2026_Secure",
             "ROSE_ADEN_HOTEL_2026_KEY",
-            "ROSE_ADEN_1_SECRET_2026",
+            "ROSE_ADEN_2_SECRET_2026",
             "PRONET_HOTSPOT_ROSE_2026",
+            "ROSE#2026#SECRET",
             "CORAL_ADEN_HOTEL_2026_KEY",
-            "PRONET_HOTSPOT_CORAL_2026",
-            "CORAL#2026#SECRET",
-            "DOLPHIN_RESORT_2026_KEY",
-            "RAH_RoseAden_Hotel_2026_Secure"
+            "DOLPHIN_RESORT_2026_KEY"
         ];
 
+        // تحديد عنوان راوتر المايكروتك لفندق روز عدن 1
         function getRouterOrigin() {
             try {
                 const params = new URLSearchParams(window.location.search);
                 const tthh = params.get("tthh");
                 if (tthh && tthh.trim() !== "") {
-                    return tthh.trim().replace(/\/+$/, "");
+                    let cleaned = tthh.trim().replace(/\/+$/, "");
+                    cleaned = cleaned.replace(/\/(index\.html|login|login\.html)$/i, "");
+                    return cleaned;
                 }
             } catch(e) {}
             return "http://r.com";
         }
 
         const routerOrigin = getRouterOrigin();
-        document.getElementById("backBtn").href = routerOrigin;
+        document.getElementById("backBtn").href = routerOrigin + "/index.html";
         document.getElementById("btnSafariGitHub").href = window.location.href;
 
+        // خوارزمية فك تشفير RC4 المعتمدة لكروت روز عدن 2 (RAH#...)
+        function rc4Decrypt(b64Data, secretKey) {
+            try {
+                const raw = atob(b64Data);
+                let S = Array.from({length: 256}, (_, i) => i);
+                let j = 0;
+                for (let i = 0; i < 256; i++) {
+                    j = (j + S[i] + secretKey.charCodeAt(i % secretKey.length)) % 256;
+                    [S[i], S[j]] = [S[j], S[i]];
+                }
+                let i = 0, j2 = 0, out = "";
+                for (let x = 0; x < raw.length; x++) {
+                    i = (i + 1) % 256;
+                    j2 = (j2 + S[i]) % 256;
+                    [S[i], S[j2]] = [S[j2], S[i]];
+                    out += String.fromCharCode(raw.charCodeAt(x) ^ S[(S[i] + S[j2]) % 256]);
+                }
+                return out;
+            } catch(e) {
+                return null;
+            }
+        }
+
+        // خوارزمية فك تشفير XOR الاحتياطية
         function xorDecrypt(cipherText, secretKey) {
             try {
                 let binStr = atob(cipherText);
@@ -507,48 +634,137 @@
             }
         }
 
+        // استخراج بيانات الكرت وتفكيك التشفير بذكاء فائق
         function extractCardCredentials(raw) {
             if (!raw) return null;
             let text = raw.trim();
 
+            // 1. فحص الروابط المباشرة (مثل http://10.2.0.1/login?... أو http://r.com/login?...)
+            if (/^https?:\/\//i.test(text)) {
+                try {
+                    let u = new URL(text);
+                    let usr = u.searchParams.get("username") || u.searchParams.get("user") || u.searchParams.get("u");
+                    let pwd = u.searchParams.get("password") || u.searchParams.get("pass") || u.searchParams.get("p");
+                    
+                    if (usr && (pwd === null || pwd === undefined)) {
+                        pwd = usr;
+                    }
+
+                    return {
+                        isDirectUrl: true,
+                        directUrl: text,
+                        username: usr || "Guest",
+                        password: pwd || ""
+                    };
+                } catch(e) {}
+            }
+
+            // 2. فحص كروت روز عدن المسبوقة بوسم RAH#
+            if (text.startsWith("RAH#")) {
+                let encPart = text.substring(4);
+                let dec = null;
+                for (let key of SECRET_KEYS_LIST) {
+                    dec = rc4Decrypt(encPart, key);
+                    if (dec) break;
+                }
+                if (dec) {
+                    if (dec.includes(":")) {
+                        let p = dec.split(":");
+                        return { isDirectUrl: false, username: p[0].trim(), password: p[1].trim() };
+                    }
+                    if (dec.includes(",")) {
+                        let p = dec.split(",");
+                        return { isDirectUrl: false, username: p[0].trim(), password: p[1].trim() };
+                    }
+                    return { isDirectUrl: false, username: dec.trim(), password: dec.trim() };
+                }
+            }
+
+            // 3. فحص الروابط التي تحتوي على معلمات دون بروتوكول صريح
             if (text.includes("://") || text.includes("?")) {
                 try {
                     let parseTarget = text;
                     if (!text.includes("://")) parseTarget = "http://" + text;
                     let u = new URL(parseTarget);
                     let usr = u.searchParams.get("username") || u.searchParams.get("user") || u.searchParams.get("u");
-                    let pwd = u.searchParams.get("password") || u.searchParams.get("pass") || u.searchParams.get("p") || "";
-                    if (usr) return { username: usr, password: pwd };
+                    let pwd = u.searchParams.get("password") || u.searchParams.get("pass") || u.searchParams.get("p");
+                    if (usr) {
+                        return {
+                            isDirectUrl: true,
+                            directUrl: parseTarget,
+                            username: usr,
+                            password: (pwd !== null && pwd !== undefined) ? pwd : usr
+                        };
+                    }
                 } catch(e) {}
             }
 
-            for (let key of CORAL_SECRET_KEYS) {
-                let decrypted = xorDecrypt(text, key);
-                if (decrypted && decrypted.length >= 3) {
-                    if (decrypted.includes(":")) {
-                        let parts = decrypted.split(":");
-                        return { username: parts[0], password: parts[1] || "" };
+            // 4. تجربة فك التشفير عبر RC4 بالمفاتيح المعتمدة
+            for (let key of SECRET_KEYS_LIST) {
+                let decRc4 = rc4Decrypt(text, key);
+                if (decRc4 && decRc4.length >= 3) {
+                    if (decRc4.includes(":")) {
+                        let p = decRc4.split(":");
+                        return { isDirectUrl: false, username: p[0].trim(), password: p[1].trim() };
                     }
-                    if (decrypted.includes(",")) {
-                        let parts = decrypted.split(",");
-                        return { username: parts[0], password: parts[1] || "" };
+                    if (decRc4.includes(",")) {
+                        let p = decRc4.split(",");
+                        return { isDirectUrl: false, username: p[0].trim(), password: p[1].trim() };
                     }
-                    if (/^[a-zA-Z0-9_-]+$/.test(decrypted)) {
-                        return { username: decrypted, password: decrypted };
+                    if (/^[a-zA-Z0-9_-]+$/.test(decRc4)) {
+                        return { isDirectUrl: false, username: decRc4, password: decRc4 };
                     }
                 }
             }
 
+            // 5. تجربة فك التشفير عبر XOR بالمفاتيح السابقة
+            for (let key of SECRET_KEYS_LIST) {
+                let decrypted = xorDecrypt(text, key);
+                if (decrypted && decrypted.length >= 3) {
+                    if (decrypted.includes(":")) {
+                        let parts = decrypted.split(":");
+                        return { isDirectUrl: false, username: parts[0].trim(), password: parts[1].trim() };
+                    }
+                    if (decrypted.includes(",")) {
+                        let parts = decrypted.split(",");
+                        return { isDirectUrl: false, username: parts[0].trim(), password: parts[1].trim() };
+                    }
+                    if (/^[a-zA-Z0-9_-]+$/.test(decrypted)) {
+                        return { isDirectUrl: false, username: decrypted, password: decrypted };
+                    }
+                }
+            }
+
+            // 6. فحص الصيغ النصية الصريحة (user:pass أو user,pass)
             if (text.includes(":")) {
                 let parts = text.split(":");
-                return { username: parts[0].trim(), password: parts[1].trim() };
+                return { isDirectUrl: false, username: parts[0].trim(), password: parts[1].trim() };
             }
             if (text.includes(",")) {
                 let parts = text.split(",");
-                return { username: parts[0].trim(), password: parts[1].trim() };
+                return { isDirectUrl: false, username: parts[0].trim(), password: parts[1].trim() };
             }
 
-            return { username: text, password: text };
+            // 7. كرت برقم واحد فقط
+            return { isDirectUrl: false, username: text, password: text };
+        }
+
+        // نغمة نجاح القراءة الصوتية
+        function playSuccessBeep() {
+            try {
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (!AudioCtx) return;
+                const ctx = new AudioCtx();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.frequency.setValueAtTime(880, ctx.currentTime);
+                gain.gain.setValueAtTime(0.2, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.15);
+            } catch(e) {}
         }
 
         let isRedirecting = false;
@@ -557,8 +773,9 @@
             isRedirecting = true;
 
             const statusEl = document.getElementById("statusText");
-            statusEl.innerHTML = "<b style='color:#34d399;'>✅ تم التعرف على الكود بنجاح! جاري فك التشفير والاتصال...</b>";
+            statusEl.innerHTML = "<b style='color:#34d399;'>✅ تم التعرف على الكود بنجاح! جاري الاتصال...</b>";
 
+            playSuccessBeep();
             if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
 
             const creds = extractCardCredentials(decodedText);
@@ -568,7 +785,22 @@
                 return;
             }
 
-            statusEl.innerHTML = `<b style='color:#34d399;'>✨ مرحباً بك! كرت النزيل: (${creds.username})<br>جاري تحويلك لراوتر الفندق...</b>`;
+            // إذا كان الباركود يحتوي على رابط مباشر للراوتر، يتم فتحه كما هو تماماً مثل كاميرا الهاتف
+            let target = "";
+            if (creds.isDirectUrl && creds.directUrl) {
+                target = creds.directUrl;
+            } else {
+                // إذا كان كوداً مشفراً أو نصياً، يتم توجيهه إلى مسار /login المباشر للراوتر
+                target = `${routerOrigin}/login?username=${encodeURIComponent(creds.username)}&password=${encodeURIComponent(creds.password)}`;
+            }
+
+            statusEl.innerHTML = `
+                <div style="padding:6px 4px;">
+                    <b style='color:#34d399; font-size:14px; display:block; margin-bottom:4px;'>✨ مرحباً بك في روز عدن 2! كرت النزيل: (${creds.username})</b>
+                    <span style="font-size:12px; color:#cbd5e1; display:block; margin-bottom:8px;">جاري إتمام تسجيل الدخول في راوتر الفندق...</span>
+                    <a href="${target}" style="display:inline-block; padding:8px 18px; border-radius:12px; background:linear-gradient(135deg, #c52548, #9f1239); color:#fff; text-decoration:none; font-weight:800; font-size:12.5px; border:1px solid #fb7185; box-shadow: 0 4px 12px rgba(197,37,72,0.4);">اضغط هنا للاتصال الفوري 🚀</a>
+                </div>
+            `;
 
             try {
                 if (html5QrCode && html5QrCode.isScanning) {
@@ -577,9 +809,8 @@
             } catch(e) {}
 
             setTimeout(() => {
-                const target = `${routerOrigin}/?username=${encodeURIComponent(creds.username)}&password=${encodeURIComponent(creds.password)}`;
                 window.location.href = target;
-            }, 600);
+            }, 350);
         }
 
         let html5QrCode = null;
@@ -638,7 +869,7 @@
             try {
                 const track = html5QrCode.getRunningTrackCapabilities();
                 if (track && track.torch) {
-                    torchBtn.style.display = "inline-block";
+                    torchBtn.style.display = "inline-flex";
                     torchBtn.onclick = async () => {
                         isFlashOn = !isFlashOn;
                         await html5QrCode.applyVideoConstraints({
@@ -675,7 +906,7 @@
                 reader.readAsDataURL(file);
             }
 
-            // إيقاف الكاميرا لتوفير الموارد
+            // إيقاف الكاميرا لتوفير موارد الجهاز
             try {
                 if (html5QrCode && html5QrCode.isScanning) {
                     await html5QrCode.stop();
@@ -705,7 +936,7 @@
                     return;
                 }
             } catch (err) {
-                console.warn("المسح القياسي لم يجد الرمز، جاري المحاولة بنظام المعالجة المحسنة:", err);
+                console.warn("المسح القياسي لم يجد الرمز، جاري المحاولة بنظام المعالجة المحسنة للقطات الشاشة:", err);
             }
 
             // المحاولة الثانية: تحسين تباين لقطة الشاشة وإعادة المسح (Fallback for High-Res Screenshots)
@@ -717,7 +948,6 @@
                         const canvas = document.createElement("canvas");
                         const ctx = canvas.getContext("2d");
                         
-                        // تغيير الحجم لتحسين أداء قراءة QR للقطات الشاشة الكبيرة
                         let w = img.width;
                         let h = img.height;
                         const maxDim = 1200;
@@ -805,11 +1035,15 @@
             const mode = urlParams.get("mode") || urlParams.get("action");
 
             if (mode === "file" || mode === "gallery" || mode === "upload") {
-                // فتح نافذة اختيار الملف / لقطة الشاشة تلقائياً
                 setTimeout(() => {
                     const galleryInp = document.getElementById("qrGalleryInput");
                     if (galleryInp) galleryInp.click();
-                }, 500);
+                }, 400);
+            } else if (mode === "capture" || mode === "snap" || mode === "camera_direct") {
+                setTimeout(() => {
+                    const snapInp = document.getElementById("qrCaptureInput");
+                    if (snapInp) snapInp.click();
+                }, 400);
             } else {
                 initCameraScanner();
             }
